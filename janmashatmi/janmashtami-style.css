@@ -1,0 +1,228 @@
+:root{
+  --peacock:#1B4F72;
+  --peacock-deep:#0E2F4A;
+  --saffron:#E27D2F;
+  --kesariya:#D9622B;
+  --gold:#C9A24B;
+  --leaf:#3B7A57;
+  --cream:#EAF4FB;
+  --cream-2:#D9EBF7;
+  --ink:#213A4D;
+  --display-font:'Yatra One', cursive;
+  --devanagari-font:'Tiro Devanagari Hindi', serif;
+  --body-font:'Mukta', sans-serif;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--body-font);
+  color:var(--ink);
+  background:var(--cream);
+  overflow-x:hidden;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important;}
+}
+
+/* ---------- Floating diyas / feathers / om ---------- */
+.floaters{position:fixed; inset:0; pointer-events:none; z-index:2; overflow:hidden;}
+.floaters span{position:absolute; top:110%; font-size:22px; opacity:.5; animation:rise linear infinite;}
+.floaters .diya{font-size:20px;}
+.floaters .om{font-size:18px; opacity:.35;}
+.floaters span:nth-child(1){left:6%; animation-duration:16s; animation-delay:0s;}
+.floaters span:nth-child(2){left:18%; animation-duration:20s; animation-delay:2s;}
+.floaters span:nth-child(3){left:32%; animation-duration:14s; animation-delay:4s;}
+.floaters span:nth-child(4){left:48%; animation-duration:22s; animation-delay:1s;}
+.floaters span:nth-child(5){left:63%; animation-duration:17s; animation-delay:5s;}
+.floaters span:nth-child(6){left:74%; animation-duration:19s; animation-delay:3s;}
+.floaters span:nth-child(7){left:85%; animation-duration:15s; animation-delay:6s;}
+.floaters span:nth-child(8){left:93%; animation-duration:21s; animation-delay:2.5s;}
+
+@keyframes rise{
+  0%{transform:translateY(0) rotate(0deg); opacity:.6;}
+  100%{transform:translateY(-120vh) rotate(20deg); opacity:0;}
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  padding:70px 20px 60px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(27,79,114,0.16), transparent 45%),
+    radial-gradient(circle at 82% 10%, rgba(226,125,47,0.14), transparent 45%),
+    linear-gradient(180deg, var(--cream-2), var(--cream) 75%);
+}
+
+.eyebrow{
+  font-family:var(--display-font);
+  color:var(--kesariya);
+  font-size:1.05rem;
+  margin:6px 0 10px;
+}
+.eyebrow.center{text-align:center;}
+
+.flute-wrap{display:flex; justify-content:center; margin-bottom:6px;}
+.peacock-feather{width:60px; height:auto; animation:feather-sway 3.4s ease-in-out infinite;}
+@keyframes feather-sway{
+  0%,100%{transform:rotate(-4deg) translateY(0);}
+  50%{transform:rotate(4deg) translateY(-6px);}
+}
+
+.event-title{
+  font-family:var(--display-font);
+  font-size:clamp(2.1rem, 6.5vw, 3.6rem);
+  color:var(--peacock-deep);
+  line-height:1.25;
+  margin:8px 0 10px;
+}
+.event-title span{
+  color:var(--kesariya);
+}
+
+.organiser{font-size:1.05rem; margin:0 0 22px; color:var(--ink);}
+.organiser strong{color:var(--peacock);}
+
+.date-badge{
+  display:inline-flex; align-items:center; gap:14px; flex-wrap:wrap; justify-content:center;
+  background:#fff; border:1px solid rgba(27,79,114,0.15);
+  border-radius:16px; padding:14px 26px; margin-bottom:26px;
+  box-shadow:0 10px 26px rgba(58,42,24,0.10);
+}
+.date-badge .day{font-weight:600; color:var(--peacock);}
+.date-badge .date{font-family:var(--display-font); font-size:1.3rem; color:var(--kesariya);}
+.date-badge .time{font-weight:600; color:var(--leaf);}
+
+.hero-line{
+  max-width:520px; margin:0 auto 28px; font-size:1.02rem; line-height:1.75;
+}
+
+.scroll-cta{
+  display:inline-block;
+  font-weight:600; color:#fff;
+  background:linear-gradient(135deg, var(--kesariya), var(--peacock));
+  padding:12px 28px; border-radius:30px;
+  text-decoration:none;
+  box-shadow:0 10px 24px rgba(226,125,47,0.3);
+  transition:transform .25s ease;
+}
+.scroll-cta:hover{transform:translateY(-3px);}
+
+/* ---------- Section shared ---------- */
+main{position:relative; z-index:1;}
+.section-title{
+  font-family:var(--display-font); text-align:center; color:var(--peacock-deep);
+  font-size:clamp(1.7rem,4vw,2.4rem); margin:0 0 40px;
+}
+
+/* ---------- Program schedule ---------- */
+.program-section{max-width:760px; margin:0 auto; padding:60px 20px 20px;}
+.schedule{list-style:none; margin:0; padding:0;}
+.schedule li{
+  display:flex; align-items:center; gap:18px; margin-bottom:20px;
+}
+.time-chip{
+  flex:0 0 auto; min-width:82px; text-align:center;
+  background:var(--peacock); color:#fff; font-weight:600; font-size:.85rem;
+  padding:8px 10px; border-radius:12px;
+}
+.sched-card{
+  flex:1; background:#fff; border-left:4px solid var(--kesariya);
+  border-radius:12px; padding:14px 18px;
+  box-shadow:0 6px 18px rgba(58,42,24,0.07);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.sched-card:hover{transform:translateX(6px); box-shadow:0 12px 26px rgba(58,42,24,0.13);}
+.sched-card h3{margin:0 0 4px; font-family:var(--display-font); font-size:1.15rem; color:var(--ink);}
+.sched-card p{margin:0; font-size:.9rem; color:#6b5a45;}
+.sched-note{text-align:center; font-size:.82rem; color:#8a7860; margin-top:16px;}
+
+/* ---------- Jhanki ---------- */
+.jhanki-section{max-width:900px; margin:0 auto; padding:50px 20px;}
+.jhanki-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:22px;}
+.jhanki-card{
+  background:#fff; border-radius:18px; padding:26px 20px; text-align:center;
+  box-shadow:0 8px 22px rgba(58,42,24,0.08);
+  border-top:4px solid var(--gold);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.jhanki-card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 20px 34px rgba(58,42,24,0.16);
+}
+.jhanki-icon{
+  font-size:2.4rem; margin-bottom:10px; display:inline-block;
+  animation:icon-float 3s ease-in-out infinite;
+}
+.jhanki-card:nth-child(2) .jhanki-icon{animation-delay:.4s;}
+.jhanki-card:nth-child(3) .jhanki-icon{animation-delay:.8s;}
+@keyframes icon-float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+}
+.jhanki-card h3{font-family:var(--display-font); margin:0 0 6px; color:var(--peacock-deep); font-size:1.15rem;}
+.jhanki-card p{margin:0; font-size:.88rem; color:#6b5a45;}
+
+/* ---------- Pandit ji ---------- */
+.pandit-section{max-width:500px; margin:0 auto; padding:40px 20px; text-align:center;}
+.pandit-card{
+  background:#fff; border-radius:20px; padding:30px 24px;
+  box-shadow:0 10px 26px rgba(58,42,24,0.09);
+}
+.pandit-photo-frame{
+  width:150px; height:150px; margin:0 auto 16px;
+  border-radius:50%; overflow:hidden;
+  border:4px solid var(--gold);
+  box-shadow:0 8px 20px rgba(201,162,75,0.35);
+  position:relative;
+}
+.pandit-photo-frame img{width:100%; height:100%; object-fit:cover; display:block;}
+.photo-placeholder{
+  display:none; /* shown automatically via onerror if no photo found */
+  width:100%; height:100%;
+  background:var(--cream-2);
+  align-items:center; justify-content:center; flex-direction:column; gap:6px;
+  color:#9a8564; text-align:center; padding:10px;
+}
+.photo-placeholder span{font-size:2rem;}
+.photo-placeholder small{font-size:.68rem; line-height:1.3;}
+.pandit-caption{margin:8px 0 0; font-size:.9rem; color:#6b5a45;}
+
+/* ---------- Samiti ---------- */
+.samiti-section{max-width:520px; margin:0 auto; padding:30px 20px 60px; text-align:center;}
+.samiti-logo-frame{
+  width:110px; height:110px; margin:0 auto 14px;
+  border-radius:50%; background:#fff;
+  border:3px solid var(--peacock);
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(27,79,114,0.2);
+  animation:logo-pulse 3.6s ease-in-out infinite;
+}
+@keyframes logo-pulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+}
+.samiti-logo-frame img{width:100%; height:100%; object-fit:contain; display:block;}
+.logo-placeholder{display:none; align-items:center; justify-content:center; font-size:2.4rem; color:var(--peacock);}
+.samiti-name{font-family:var(--display-font); color:var(--peacock-deep); font-size:1.5rem; margin:0 0 10px;}
+.samiti-line{font-size:.92rem; line-height:1.7; color:#5a4a35;}
+
+/* ---------- Footer ---------- */
+.footer{
+  text-align:center; padding:50px 20px 60px;
+  background:linear-gradient(180deg, var(--cream), var(--cream-2));
+}
+.footer-om{font-size:2.4rem; margin:0 0 6px; animation:icon-float 3s ease-in-out infinite;}
+.blessing{font-family:var(--display-font); color:var(--kesariya); font-size:1.4rem; margin:0 0 8px;}
+.footer-line{color:#6b5a45; font-size:.85rem;}
+
+/* ---------- Responsive ---------- */
+@media (max-width:600px){
+  .hero{padding:50px 14px 46px;}
+  .schedule li{flex-direction:column; align-items:flex-start;}
+  .time-chip{align-self:flex-start;}
+}
